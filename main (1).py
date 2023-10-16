@@ -1,24 +1,18 @@
-#1.1 implement a recursive function to calculate the factorial of a guven number
+class Student:
 
-""""
-1!=1×1
-2!=2×1!--->2×1
-3!=3×2!--->3×2×1
-.
-.
-10!=10×9!
+  def __init__(self, name, roll_number, cgpa):
+    self.name = name
+    self.roll_number = roll_number
+    self.cgpa = cgpa
 
-formula-n×(n-1)!
-"""
+def sort_students(student_list):
+  sorted_students = sorted(student_list, key=lambda student: student.cgpa,reverse=True)
+  return sorted_students
 
+students = [Student("Sakthi", "22CS28",9.9),Student("Ram","22CS29",8.9),Student("Ravi", "22CS30",9.7),Student("Rani","22CS31",8.7),
+           ]
 
-def fact_rec(n):
-   if n==0 or n==1:
-       return 1
-   else:
-      return n*fact_rec(n-1)
+sorted_students = sort_students(students)
 
-number=int(input("Enter a value :"))
-res=fact_rec(number)
-
-print("the factorial of {} is {}.".format(number,res))
+for student in sorted_students:
+  print("Name: {}, Roll Number: {}, CGPA: {}".format(student.name,student.roll_number,student.cgpa))
